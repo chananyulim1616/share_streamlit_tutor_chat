@@ -1,19 +1,12 @@
 import streamlit as st
-import subprocess
-import os
 from pathlib import Path
-from dotenv import load_dotenv
 import requests
-import time
-import streamlit.components.v1 as components
 
 # Configuration
-load_dotenv()
 MAX_VIDEO_SIZE_GB = 5
 CACHE_DIR = Path(r"cache")
-os.makedirs(CACHE_DIR, exist_ok=True)
 
-API_ENDPOINT = os.getenv("CHAT_API_ENDPOINT", "http://localhost:8000/chat")
+API_ENDPOINT = st.secrets["CHAT_API_ENDPOINT"]
 
 # Subject configuration
 subjects = {
